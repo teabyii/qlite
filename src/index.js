@@ -10,3 +10,5 @@ import QLite from './qlite'
 export default function qlite (selector, context) {
   return new QLite(selector, context)
 }
+
+qlite.fn = QLite.fn

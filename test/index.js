@@ -39,4 +39,18 @@ describe('Entry', () => {
 
     assert.equal(doc[0].nodeType, 9)
   })
+
+  it('fn', () => {
+    q.fn.a = true
+    const a = q()
+    assert(a.a)
+    q.fn.a = undefined
+  })
+
+  it('extend', () => {
+    q.fn.extend({ a: 1 })
+    const a = q()
+    assert.equal(a.a, 1)
+    delete q.fn.a
+  })
 })

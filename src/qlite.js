@@ -1,15 +1,16 @@
 import { isGoodNode } from './utils'
 import query from './manipulation/query'
 import fragment, { RE_TAGNAME } from './manipulation/fragment'
+import { assign } from './polyfills'
 
-function mix (Base, ...mixins) {
-  return mixins.reduce((Klass, mixin) => mixin(Klass), Base)
+// MyArray to inherit methods from Buildin Array.
+function MyArray () {
+  const args = [].slice.call(arguments, 0)
+  this.push.apply(this, args)
+  return this
 }
 
-// Mix every part into QLite
-const QLiteBase = mix(
-  Array
-)
+MyArray.prototype = Object.create(Array.prototype)
 
 /**
  * QLite wapper for elements
@@ -18,7 +19,7 @@ const QLiteBase = mix(
  * @class QLite
  * @extends {QLiteBase}
  */
-export default class QLite extends QLiteBase {
+export default class QLite extends MyArray {
   /**
    * Creates an instance of QLite.
    * @param {string|Node|Node[]} selector
@@ -73,3 +74,17 @@ export default class QLite extends QLiteBase {
     this.selector = selector || ''
   }
 }
+
+function extend () {
+  const func = Object.assign || assign
+  const args = [].slice.call(arguments, 0)
+
+  if (args.length === 1) {
+    args.unshift(this)
+  }
+
+  return func.apply(undefined, args)
+}
+
+QLite.fn = QLite.prototype
+QLite.fn.extend = QLite.extend = extend
