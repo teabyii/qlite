@@ -1,4 +1,5 @@
 import QLite from './qlite'
+import './mixins/classname'
 
 /**
  * Entry qlite, like jQuery function.
