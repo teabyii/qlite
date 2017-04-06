@@ -1,6 +1,6 @@
 import assert from 'assert'
 import fragment from '../../src/manipulation/fragment'
-import support from '../../src/support'
+import support from '../../src/supports'
 
 describe('Fragment', () => {
   it('simple', () => {

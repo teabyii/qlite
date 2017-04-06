@@ -1,6 +1,7 @@
 import { isGoodNode } from './utils'
 import query from './manipulation/query'
-import fragment, { RE_TAGNAME } from './manipulation/fragment'
+import fragment from './manipulation/fragment'
+import { RE_TAGNAME } from './variables'
 import { assign } from './polyfills'
 
 // MyArray to inherit methods from Buildin Array.

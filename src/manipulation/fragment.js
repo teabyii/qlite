@@ -1,8 +1,9 @@
-import support from '../support'
-
-export const RE_TAGNAME = /^\s*<(\w+|!)[^>]*>/
-const RE_SINGLETAG = /^<([a-z][^/\0>:\x20\t\r\n\f]*)[\x20\t\r\n\f]*\/?>(?:<\/\1>|)$/
-const RE_TAGEXPANDER = /<(?!area|br|col|embed|hr|img|input|link|meta|param)(([a-z][^/\0>\x20\t\r\n\f]*)[^>]*)\/>/gi
+import supports from '../supports'
+import {
+  RE_TAGNAME,
+  RE_SINGLETAG,
+  RE_TAGEXPANDER
+} from '../variables'
 
 // https://github.com/jquery/jquery/blob/master/src/manipulation/wrapMapMapMap.js
 const wrapMap = {
@@ -23,7 +24,7 @@ export default function fragment (html, context) {
   }
 
   if (!context) {
-    if (support.createHTMLDocument) {
+    if (supports.createHTMLDocument) {
       context = document.implementation.createHTMLDocument('')
 
       const base = context.createElement('base')

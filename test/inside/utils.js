@@ -1,9 +1,6 @@
 import assert from 'assert'
-import {
-  win,
-  isGoodNode,
-  attach
-} from '../../src/utils'
+import { isGoodNode, attach } from '../../src/utils'
+import { win } from '../../src/variables'
 
 describe('Utils', () => {
   it('node', () => {

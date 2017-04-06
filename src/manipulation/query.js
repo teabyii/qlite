@@ -1,4 +1,5 @@
-import { win, isGoodNode } from '../utils'
+import { isGoodNode } from '../utils'
+import { win } from '../variables'
 
 const document = win.document
 const RE_SIMPLE = /^(?:\.|#)?([\w-]+)$/

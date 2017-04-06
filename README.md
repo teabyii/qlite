@@ -18,7 +18,9 @@ A little library to operate DOM like jQuery, as a subset of jQuery.
 - addClass/removeClass/hasClass/toggleClass
 - before/after
 - append/appendTo/prepend/prependTo
-- val/attr/prop/data/removeAttr/removeProp/removeData
+- attr/removeAttr/
+- val/prop/removeProp
+- data/removeData
 - on/off/one
 - children/contents
 - css

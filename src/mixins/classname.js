@@ -1,10 +1,6 @@
 import QLite from '../qlite'
-import {
-  RE_NOTHTMLWHITE,
-  Node,
-  stripAndCollapse,
-  attach
-} from '../utils'
+import { stripAndCollapse, attach } from '../utils'
+import { RE_NOTHTMLWHITE, Node } from '../variables'
 
 QLite.fn.extend({
   addClass (value) {

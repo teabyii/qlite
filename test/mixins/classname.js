@@ -2,7 +2,7 @@ import assert from 'assert'
 import { inject, clear } from '../fixtures/inject'
 import { default as q } from '../../src/index'
 
-describe('classname', () => {
+describe('Classname', () => {
   before(() => {
     inject('query')
   })
@@ -136,7 +136,7 @@ describe('classname', () => {
 
   it('callback args', () => {
     const items = q('.list-item')
-    let i = 0;
+    let i = 0
 
     items.addClass((index, classname) => {
       assert.equal(index, i)
@@ -162,4 +162,4 @@ describe('classname', () => {
       item.classList.add('list-item')
     })
   })
-});
+})
