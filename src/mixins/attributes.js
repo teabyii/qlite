@@ -73,11 +73,10 @@ export function removeAttr (node, name) {
 
     if (attrNames && node.nodeType === Node.ELEMENT_NODE) {
       let i = 0
-      let attribute = attrNames[i++]
+      let attribute
 
-      while (attribute) {
+      while ((attribute = attrNames[i++])) {
         node.removeAttribute(attribute)
-        attribute = attrNames[i++]
       }
     }
   }

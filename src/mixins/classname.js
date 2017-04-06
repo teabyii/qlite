@@ -69,9 +69,9 @@ QLite.fn.extend({
       if (type === 'string') {
         const classes = value.match(RE_NOTHTMLWHITE) || []
         let i = 0
-        let classname = classes[i++]
+        let classname
 
-        while (classname) {
+        while ((classname = classes[i++])) {
           hasClass(node, classname)
             ? removeClass(node, classname) : addClass(node, classname)
 
@@ -128,14 +128,12 @@ export function addClass (node, value) {
   if (node.nodeType === Node.ELEMENT_NODE) {
     let target = ` ${stripAndCollapse(current)} `
     let i = 0
-    let classname = classes[i++]
+    let classname
 
-    while (classname) {
+    while ((classname = classes[i++])) {
       if (current.indexOf(` ${classname} `) < 0) {
         target += `${classname} `
       }
-
-      classname = classes[i++]
     }
 
     const finalValue = stripAndCollapse(target)
@@ -156,14 +154,12 @@ export function removeClass (node, value) {
       const classes = value.match(RE_NOTHTMLWHITE) || []
       let target = ` ${stripAndCollapse(current)}`
       let i = 0
-      let classname = classes[i++]
+      let classname
 
-      while (classname) {
+      while ((classname = classes[i++])) {
         if (current.indexOf(` ${classname} `) < 0) {
           target = target.replace(` ${classname}`, ' ')
         }
-
-        classname = classes[i++]
       }
 
       const finalValue = stripAndCollapse(target)
