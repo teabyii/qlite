@@ -13,6 +13,7 @@ export const win = window || {
   document: global.document,
   Node: {
     ELEMENT_NODE: 1,
+    ATTRIBUTE_NODE: 2,
     TEXT_NODE: 3,
     PROCESSING_INSTRUCTION_NODE: 7,
     COMMENT_NODE: 8,

@@ -31,6 +31,15 @@ export function stripAndCollapse (value) {
   return (value.match(RE_NOTHTMLWHITE) || []).join(' ')
 }
 
+/**
+ * Attach data to owner
+ *
+ * @export
+ * @param {Object} owner
+ * @param {string} key
+ * @param {any} value
+ * @returns
+ */
 export function attach (owner, key, value) {
   let store = owner[expando]
 
@@ -49,4 +58,50 @@ export function attach (owner, key, value) {
     store[key] = value
     return value
   }
+}
+
+/**
+ * Multifunctional method to get and set values of a collection
+ * Reference:
+ * https://github.com/jquery/jquery/blob/master/src/core/access.js
+ *
+ * @export
+ * @param {Array} items
+ * @param {Function} fn
+ * @param {string} key
+ * @param {any} value
+ */
+export function access (items, fn, key, value) {
+  // Multi keys
+  if (typeof key === 'object') {
+    for (let i in key) {
+      access(items, fn, i, key[i])
+    }
+
+    return items
+  } else if (value !== undefined) {
+    const valueAsFunc = (typeof value === 'function')
+
+    if (!key) {
+      if (valueAsFunc) {
+        const callback = fn
+        fn = function (item, key, value) {
+          return callback(item, value)
+        }
+      } else {
+        fn(items, value)
+        fn = null
+      }
+    }
+
+    if (typeof fn === 'function') {
+      items.forEach((item, index) => {
+        fn(item, key, valueAsFunc ? value(item, index, fn(item, key)) : value)
+      })
+    }
+
+    return items
+  }
+
+  return items.length ? fn(items[0], key) : undefined
 }
