@@ -21,3 +21,8 @@ export function assign (target, varArgs) { // .length of function is 2
 
   return to
 }
+
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray
+export function isArray (target) {
+  return Object.prototype.toString.call(target) === '[object Array]'
+}

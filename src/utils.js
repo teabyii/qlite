@@ -19,6 +19,13 @@ export function isGoodNode (node) {
     type === Node.DOCUMENT_FRAGMENT_NODE
 }
 
+export function isXML (node) {
+  // documentElement is verified for cases where it doesn't yet exist
+  // (such as loading iframes in IE - #4833)
+  const documentElement = node && (node.ownerDocument || node).documentElement
+  return documentElement ? documentElement.nodeName !== 'HTML' : false
+}
+
 /**
  * Strip and collapse whitespace according to HTML spec
  * https://infra.spec.whatwg.org/#strip-and-collapse-ascii-whitespace

@@ -7,6 +7,10 @@ describe('Attributes', () => {
     inject('elements')
   })
 
+  after(() => {
+    clear()
+  })
+
   it('get', () => {
     const foo = q('#foo')
 
@@ -50,9 +54,5 @@ describe('Attributes', () => {
 
     const options = q('#form option')
     assert.equal(options.attr('value'), '0')
-  })
-
-  after(() => {
-    clear()
   })
 })
