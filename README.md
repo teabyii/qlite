@@ -23,6 +23,7 @@ A little library to operate DOM like jQuery, as a subset of jQuery.
 - data/removeData
 - on/off/one
 - children/contents
+- parent/parents/closest
 - css
 - ready
 - remove

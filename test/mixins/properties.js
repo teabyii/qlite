@@ -1,5 +1,6 @@
 import assert from 'assert'
 import { inject, clear } from '../fixtures/inject'
+import '../../src/mixins/properties'
 import { default as q } from '../../src/index'
 
 describe('Properties', () => {

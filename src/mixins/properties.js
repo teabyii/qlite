@@ -1,7 +1,6 @@
-import QLite from '../qlite'
-import { isXML, access, stripAndCollapse } from '../utils'
-import { Node } from '../variables'
-import { isArray } from '../polyfills'
+import qlite from '../index'
+import { isXML, access, stripAndCollapse } from '../core/utils'
+import { Node } from '../core/variables'
 
 // https://github.com/jquery/jquery/blob/master/src/attributes/prop.js#L128
 export const propFix = [
@@ -20,7 +19,7 @@ export const propFix = [
   return target
 }, {})
 
-QLite.fn.extend({
+qlite.fn.extend({
   prop (name, value) {
     return access(this, prop, name, value)
   },
@@ -50,7 +49,7 @@ QLite.fn.extend({
         // Value setter in <select>
         let optionSet = false
         let i = options.length
-        const values = isArray(value) ? value : [value]
+        const values = Array.isArray(value) ? value : [value]
 
         while (i--) {
           const option = options[i]

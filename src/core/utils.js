@@ -1,4 +1,4 @@
-import { RE_NOTHTMLWHITE, Node, expando } from './variables'
+import { RE_NOTHTMLWHITE, expando, Node } from './variables'
 
 /**
  * A element node or document node, or document fragment node?

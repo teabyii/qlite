@@ -1,6 +1,6 @@
 import assert from 'assert'
 import { inject, clear } from '../fixtures/inject'
-import query from '../../src/manipulation/query'
+import query from '../../src/core/query'
 
 describe('Query', () => {
   before(() => {

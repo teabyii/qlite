@@ -1,8 +1,8 @@
-import QLite from '../qlite'
-import { access } from '../utils'
-import { RE_NOTHTMLWHITE, Node } from '../variables'
+import qlite from '../index'
+import { access } from '../core/utils'
+import { RE_NOTHTMLWHITE, Node } from '../core/variables'
 
-QLite.fn.extend({
+qlite.fn.extend({
   attr (name, value) {
     return access(this, attr, name, value)
   },

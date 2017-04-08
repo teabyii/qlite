@@ -1,8 +1,8 @@
-import QLite from '../qlite'
-import { stripAndCollapse, attach } from '../utils'
-import { RE_NOTHTMLWHITE, Node } from '../variables'
+import qlite from '../index'
+import { stripAndCollapse, attach } from '../core/utils'
+import { RE_NOTHTMLWHITE, Node } from '../core/variables'
 
-QLite.fn.extend({
+qlite.fn.extend({
   addClass (value) {
     if (typeof value === 'function') {
       return this.forEach((node, index) => {
@@ -58,7 +58,7 @@ QLite.fn.extend({
 
     if (type === 'function') {
       return this.forEach((node, index) => {
-        new QLite(node).toggleClass(
+        qlite(node).toggleClass(
           value.call(node, index, getClass(node), state),
           state
         )

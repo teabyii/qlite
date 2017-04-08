@@ -1,9 +1,9 @@
-import supports from '../supports'
+import supports from './supports'
 import {
   RE_TAGNAME,
   RE_SINGLETAG,
   RE_TAGEXPANDER
-} from '../variables'
+} from './variables'
 
 // https://github.com/jquery/jquery/blob/master/src/manipulation/wrapMapMapMap.js
 const wrapMap = {

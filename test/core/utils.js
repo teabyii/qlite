@@ -1,6 +1,5 @@
 import assert from 'assert'
-import { isGoodNode, attach, access } from '../../src/utils'
-import { win } from '../../src/variables'
+import { isGoodNode, attach, access } from '../../src/core/utils'
 
 describe('Utils', () => {
   it('node', () => {
@@ -8,7 +7,7 @@ describe('Utils', () => {
   })
 
   it('attach', () => {
-    const doc = win.document
+    const doc = window.document
     const data = attach(doc)
     assert.equal(typeof data, 'object')
     assert.equal(attach(doc), data)

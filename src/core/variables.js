@@ -8,19 +8,6 @@ export const RE_TAGEXPANDER = /<(?!area|br|col|embed|hr|img|input|link|meta|para
 // Unique identification for QLite in each page.
 export const expando = `QLite${Math.random()}`.replace(/\D/g, '')
 
-// For Node.js environment
-export const win = window || {
-  document: global.document,
-  Node: {
-    ELEMENT_NODE: 1,
-    ATTRIBUTE_NODE: 2,
-    TEXT_NODE: 3,
-    PROCESSING_INSTRUCTION_NODE: 7,
-    COMMENT_NODE: 8,
-    DOCUMENT_NODE: 9,
-    DOCUMENT_TYPE_NODE: 10,
-    DOCUMENT_FRAGMENT_NODE: 11
-  }
-}
-
-export const Node = win.Node
+// Variables in window
+export const Node = window.Node
+export const document = window.document

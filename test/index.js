@@ -1,5 +1,5 @@
 import assert from 'assert'
-import { default as q } from '../src/index'
+import { default as q } from '../index'
 const document = window.document
 
 describe('Entry', () => {
