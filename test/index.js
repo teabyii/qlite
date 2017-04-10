@@ -32,12 +32,14 @@ describe('Entry', () => {
     assert.equal(div[0].innerText, 'hello')
   })
 
-  it('function', () => {
+  it('ready', () => {
     const doc = q(() => {
-      // nothing
+      assert.ok(true)
+      assert.equal(q('body')[0].tagName, 'BODY')
+      done()
     })
 
-    assert.equal(doc[0].nodeType, 9)
+    assert.equal(document, doc[0])
   })
 
   it('fn', () => {
