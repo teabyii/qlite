@@ -1,6 +1,6 @@
 import assert from 'assert'
 import { inject, clear } from '../fixtures/inject'
-import query from '../../src/core/query'
+import query, { matches } from '../../src/core/query'
 
 describe('Query', () => {
   before(() => {
@@ -78,7 +78,12 @@ describe('Query', () => {
     assert.equal(query().length, 0)
   })
 
-  it('exceptions', () => {
+  it('matches', () => {
+    const form = document.getElementById('form')
+    const items = query('ol.list > li')
 
+    assert.equal(matches(form, '#form'), true)
+    assert.equal(matches(items[0], '.list li'), true)
+    assert.equal(matches(items[1], 'ul > li'), false)
   })
 })

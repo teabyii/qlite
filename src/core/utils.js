@@ -1,6 +1,41 @@
 import { RE_NOTHTMLWHITE, expando, Node } from './variables'
 
 /**
+ * Creates a duplicate-free version of an array
+ *
+ * @export
+ * @param {Array} array
+ * @returns
+ */
+export function uniq (array) {
+  if (array && array.length) {
+    return [].filter.call(array, (item, index) => array.indexOf(item) === index)
+  } else {
+    return []
+  }
+}
+
+/**
+ * Get values from a named property of each item in the collection
+ *
+ * @export
+ * @param {string} property
+ * @param {boolean} first
+ * @returns
+ */
+export function pluck (array, property, first) {
+  if (!Array.isArray(array) || !array[0]) {
+    return undefined
+  }
+
+  if (first) {
+    return array[0][property]
+  } else {
+    return array.map(item => item[property])
+  }
+}
+
+/**
  * A element node or document node, or document fragment node?
  *
  * @export

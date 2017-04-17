@@ -1,9 +1,19 @@
 import assert from 'assert'
-import { isGoodNode, attach, access } from '../../src/core/utils'
+import {
+  isGoodNode,
+  uniq,
+  attach,
+  access
+} from '../../src/core/utils'
 
 describe('Utils', () => {
   it('node', () => {
     assert(!isGoodNode())
+  })
+
+  it('uniq', () => {
+    const a = [1, 2, 3, 1, 3, 4]
+    assert.deepEqual(uniq(a), [1, 2, 3, 4])
   })
 
   it('attach', () => {

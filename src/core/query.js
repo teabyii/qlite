@@ -50,3 +50,29 @@ export default function query (selector, context) {
 
   return parent.querySelectorAll(selector)
 }
+
+/**
+ * Determine if the element would be selected by the specified selector string
+ * https://developer.mozilla.org/en-US/docs/Web/API/Element/matches
+ *
+ * @export
+ * @param {Node} node
+ * @param {string} selector
+ */
+export function matches (node, selector) {
+  if (!node || !selector || node.nodeType !== Node.ELEMENT_NODE) {
+    return false
+  }
+
+  const fn = node.matches ||
+    node.webkitMatchesSelector ||
+    node.mozMatchesSelector ||
+    node.oMatchesSelector ||
+    node.msMatchesSelector
+
+  if (fn) {
+    return fn.call(node, selector)
+  }
+
+  return [].indexOf.call(query(selector), node) !== -1
+}

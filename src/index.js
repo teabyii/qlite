@@ -1,6 +1,7 @@
 import { isGoodNode } from './core/utils'
 import query from './core/query'
 import fragment from './core/fragment'
+import ready from './core/ready'
 import { RE_TAGNAME } from './core/variables'
 
 // MyArray to inherit methods from Buildin Array.
@@ -66,12 +67,20 @@ class QLite extends MyArray {
     // DOM ready
     if (typeof selector === 'function') {
       this.push(document)
-      this.ready && this.ready()
+      ready(selector)
     }
 
     // Special properties
     this.QLite = true
     this.selector = selector || ''
+  }
+
+  merge(array) {
+    const len = array.length
+    for (let i = 0; i <= len; i++) {
+      this.push(array[i])
+    }
+    return this
   }
 }
 
