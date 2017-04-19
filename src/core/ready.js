@@ -8,12 +8,12 @@ export default function ready (fn) {
         !document.documentElement.doScroll
       )
     ) {
-    setTimeout(() => fn(qlite))
+    setTimeout(() => fn())
   } else {
     const handler = () => {
       document.removeEventListener('DOMContentLoaded', handler, false)
       window.removeEventListener('load', handler, false)
-      fn(qlite)
+      fn()
     }
 
     document.addEventListener('DOMContentLoaded', handler, false)

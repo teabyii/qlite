@@ -56,10 +56,10 @@ class QLite extends MyArray {
 
     super()
 
-    // Move elems to this.
+    // Move elems into this.
     const len = elems.length
     for (let i = 0; i < len; i++) {
-      if (elems[i] && isGoodNode(elems[i])) {
+      if (elems[i]) {
         this.push(elems[i])
       }
     }
@@ -75,13 +75,38 @@ class QLite extends MyArray {
     this.selector = selector || ''
   }
 
-  merge(array) {
+  merge (array) {
     const len = array.length
     for (let i = 0; i < len; i++) {
       this.push(array[i])
     }
     return this
   }
+
+  // Array methods
+  filter () {
+    return arrayMethodsCall('filter', this, arguments)
+  }
+
+  map () {
+    return arrayMethodsCall('map', this, arguments)
+  }
+
+  find () {
+    return arrayMethodsCall('find', this, arguments)
+  }
+
+  concat () {
+    return arrayMethodsCall('filter', this, arguments)
+  }
+
+  slice () {
+    return arrayMethodsCall('slice', this, arguments)
+  }
+}
+
+function arrayMethodsCall (name, ctx, args) {
+  return new QLite([][name].apply(ctx, args))
 }
 
 function extend () {

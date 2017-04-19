@@ -43,7 +43,7 @@ describe('Traversing', () => {
 
   it('parents', () => {
     assert.equal(q('#foo-input').parents()[0].id, 'form')
-    const parents = q('.list span').parents();
+    const parents = q('.list span').parents()
     assert.equal(parents[0].tagName, 'LI')
     assert.equal(parents[1].tagName, 'OL')
     assert.equal(parents[2].tagName, 'DIV')
@@ -51,11 +51,11 @@ describe('Traversing', () => {
   })
 
   it('parentsUntil', () => {
-    const parents = q('.list span').parentsUntil('div');
+    const parents = q('.list span').parentsUntil('div')
     assert.equal(parents[0].tagName, 'LI')
     assert.equal(parents[1].tagName, 'OL')
     assert.equal(parents[2].tagName, 'LI')
-    assert.equal(parents.length, 6);
+    assert.equal(parents.length, 6)
   })
 
   it('closest', () => {
@@ -67,76 +67,76 @@ describe('Traversing', () => {
 
   it('next', () => {
     const items = q('.list-item')
-    let nexts = items.next();
-    assert.equal(nexts[0], items[1]);
-    assert.equal(nexts[1], items[2]);
-    assert.equal(nexts.length, 2);
+    let nexts = items.next()
+    assert.equal(nexts[0], items[1])
+    assert.equal(nexts[1], items[2])
+    assert.equal(nexts.length, 2)
 
-    nexts = items.next('li');
-    assert.equal(nexts[0], items[1]);
+    nexts = items.next('li')
+    assert.equal(nexts[0], items[1])
 
-    nexts = items.next('div');
-    assert.equal(nexts.length, 0);
+    nexts = items.next('div')
+    assert.equal(nexts.length, 0)
   })
 
   it('nextAll', () => {
     const items = q('.list-item')
-    let nexts = items.nextAll();
-    assert.equal(nexts[0], items[1]);
-    assert.equal(nexts[1], items[2]);
-    assert.equal(nexts[2], items[2]);
+    let nexts = items.nextAll()
+    assert.equal(nexts[0], items[1])
+    assert.equal(nexts[1], items[2])
+    assert.equal(nexts[2], items[2])
     assert.equal(nexts.length, 3)
 
-    nexts = items.nextAll('li');
-    assert.equal(nexts[0], items[1]);
+    nexts = items.nextAll('li')
+    assert.equal(nexts[0], items[1])
 
-    nexts = items.nextAll('div');
-    assert.equal(nexts.length, 0);
+    nexts = items.nextAll('div')
+    assert.equal(nexts.length, 0)
   })
 
   it('nextUntil', () => {
     const form = q('#form')
     let nexts = form.nextUntil('table')
-    assert.equal(nexts[0].tagName, 'A');
-    assert.equal(nexts[1].tagName, 'OL');
-    assert.equal(nexts.length, 2);
+    assert.equal(nexts[0].tagName, 'A')
+    assert.equal(nexts[1].tagName, 'OL')
+    assert.equal(nexts.length, 2)
   })
 
   it('prev', () => {
     const items = q('.list-item')
-    let prevs = items.prev();
-    assert.equal(prevs[0], items[0]);
-    assert.equal(prevs[1], items[1]);
-    assert.equal(prevs.length, 2);
+    let prevs = items.prev()
+    assert.equal(prevs[0], items[0])
+    assert.equal(prevs[1], items[1])
+    assert.equal(prevs.length, 2)
 
-    prevs = items.prev('li');
-    assert.equal(prevs[1], items[1]);
+    prevs = items.prev('li')
+    assert.equal(prevs[1], items[1])
 
-    prevs = items.prev('div');
-    assert.equal(prevs.length, 0);
+    prevs = items.prev('div')
+    assert.equal(prevs.length, 0)
   })
 
   it('prevAll', () => {
     const items = q('.list-item')
-    let prevs = items.prevAll();
-    assert.equal(prevs[0], items[0]);
-    assert.equal(prevs[1], items[1]);
-    assert.equal(prevs[2], items[0]);
-    assert.equal(prevs.length, 3);
+    let prevs = items.prevAll()
+    assert.equal(prevs[0], items[0])
+    assert.equal(prevs[1], items[1])
+    assert.equal(prevs[2], items[0])
+    assert.equal(prevs.length, 3)
 
-    prevs = items.prevAll('li');
-    assert.equal(prevs[2], items[0]);
+    prevs = items.prevAll('li')
+    assert.equal(prevs[2], items[0])
 
-    prevs = items.prevAll('div');
-    assert.equal(prevs.length, 0);
+    prevs = items.prevAll('div')
+    assert.equal(prevs.length, 0)
   })
 
   it('prevUntil', () => {
     const table = q('#table')
     let prevs = table.prevUntil('form')
-    assert.equal(prevs[0].tagName, 'OL');
-    assert.equal(prevs[1].tagName, 'A');
-    assert.equal(prevs.length, 2);
+    assert.equal(prevs[0].tagName, 'OL')
+    assert.equal(prevs[1].tagName, 'A')
+    assert.equal(prevs.length, 2)
   })
 
   it('siblings', () => {
@@ -161,7 +161,7 @@ describe('Traversing', () => {
   })
 
   it('contents', () => {
-     const contents = q('#content').contents()
-     assert.equal(contents.not('br').length, 3)
+    const contents = q('#content').contents()
+    assert.equal(contents.not('br').length, 3)
   })
 })

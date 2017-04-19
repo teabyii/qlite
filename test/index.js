@@ -5,17 +5,19 @@ const document = window.document
 describe('Entry', () => {
   it('properties', () => {
     const a = q()
-    assert(a.QLite === true)
+    assert(a.QLite)
 
     const b = q('div')
-    assert(b.selector === 'div')
+    assert.equal(b.selector, 'div')
   })
 
   it('array behavior', () => {
-    const a = q()
-
+    let a = q()
     assert.equal(typeof a.forEach, 'function')
     assert.equal(typeof a.map, 'function')
+
+    a = q('<div>hello</div>').filter(item => !item)
+    assert(a.QLite)
   })
 
   it('node', () => {
@@ -34,7 +36,7 @@ describe('Entry', () => {
 
   it('ready', (done) => {
     const doc = q(() => {
-      assert.ok(true)
+      assert(true)
       assert.equal(q('body')[0].tagName, 'BODY')
       done()
     })

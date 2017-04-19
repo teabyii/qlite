@@ -106,7 +106,7 @@ export function obtain (elements, fn, qualifier, guaranteedUnique = false) {
     }, result)
 
     result = winnow(t, qualifier)
-    return guaranteedUnique ? qlite(uniq(result)) : result;
+    return guaranteedUnique ? qlite(uniq(result)) : result
   } else {
     return qlite()
   }
@@ -184,7 +184,7 @@ export function skip (elem, key) {
     // nothing
   }
 
-  return elem ? [elem] : [];
+  return elem ? [elem] : []
 }
 
 /**
@@ -196,7 +196,7 @@ export function skip (elem, key) {
  * @param {any} elem
  * @returns
  */
-export function siblings(t, elem) {
+export function siblings (t, elem) {
   const matched = []
 
   do {
