@@ -77,7 +77,7 @@ class QLite extends MyArray {
 
   merge(array) {
     const len = array.length
-    for (let i = 0; i <= len; i++) {
+    for (let i = 0; i < len; i++) {
       this.push(array[i])
     }
     return this
