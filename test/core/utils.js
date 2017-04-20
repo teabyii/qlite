@@ -1,9 +1,8 @@
 import assert from 'assert'
 import {
-  isGoodNode,
-  uniq,
-  attach,
-  access
+  isGoodNode, uniq,
+  attach, access,
+  camelCase
 } from '../../src/core/utils'
 
 describe('Utils', () => {
@@ -96,5 +95,21 @@ describe('Utils', () => {
     const foo = []
 
     assert.equal(access(foo, (item, key) => item[key], 'test'), undefined)
+  })
+
+  it('camelCase', () => {
+    const cases = {
+      'foo-bar': 'fooBar',
+      'foo-bar-baz': 'fooBarBaz',
+      'girl-u-want': 'girlUWant',
+      'the-4th-dimension': 'the-4thDimension',
+      '-o-tannenbaum': 'OTannenbaum',
+      '-moz-illa': 'MozIlla',
+      '-ms-take': 'msTake'
+    }
+
+    for (let key in cases) {
+      assert.equal(camelCase(key), cases[key])
+    }
   })
 })

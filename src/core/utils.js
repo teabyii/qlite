@@ -147,3 +147,18 @@ export function access (items, fn, key, value) {
 
   return items.length ? fn(items[0], key) : undefined
 }
+
+const RE_MS = /^-ms-/
+const RE_DASH = /-([a-z])/g
+/**
+ * Convert dashed to camelCase
+ * Used by the css and data modules
+ *
+ * @export
+ * @param {string} string
+ * @returns
+ */
+export function camelCase (string) {
+  // Microsoft forgot to hump their vendor prefix
+  return string.replace(RE_MS, 'ms-').replace(RE_DASH, (all, letter) => letter.toUpperCase())
+}
