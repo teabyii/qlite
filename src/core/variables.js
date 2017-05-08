@@ -8,6 +8,12 @@ export const RE_TAGEXPANDER = /<(?!area|br|col|embed|hr|img|input|link|meta|para
 // Unique identification for QLite in each page.
 export const expando = `QLite${Math.random()}`.replace(/\D/g, '')
 
+// Unique ID
+export let guid = 1
+
 // Variables in window
 export const Node = window.Node
 export const document = window.document
+
+export const returnFalse = () => false
+export const returnTrue = () => true
